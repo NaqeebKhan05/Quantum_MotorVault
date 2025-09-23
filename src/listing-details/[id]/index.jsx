@@ -10,7 +10,7 @@ import ImageGallery from "../components/ImageGallery";
 import Description from "../components/Description";
 import Features from "../components/Features";
 import Specification from "../components/Specification";
-import OwnersDetail from "../components/ownersDetail";
+import OwnersDetail from "../components/OwnersDetail";
 import Footer from "@/components/Footer";
 import FinancialCalculator from "../components/FinancialCalculator";
 import MostSearchedCar from "@/components/MostSearchedCar";
