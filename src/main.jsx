@@ -13,6 +13,12 @@ import SearchByCategory from "./search/[category]";
 import SearchByOptions from "./search";
 import ListingDetial from "./listing-details/[id]";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AdminDashboard from "./admin/admin";
+import UserCars from "./admin/components/UserCars";
+import AdminAddListing from "./admin/components/AddNewCar";
+import Stats from "./admin/components/Stats";
+import AllBookings from "./admin/components/AllBookings";
+import AdminRoute from "./admin/components/AdminRoute";
 
 // Import your Publishable Key
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
@@ -68,6 +74,21 @@ const router = createBrowserRouter([
   {
     path: "/listing-details/:id",
     element: <ListingDetial />,
+  },
+  {
+    path: "/admin",
+    element: (
+      <AdminRoute>
+        <AdminDashboard />
+      </AdminRoute>
+    ),
+    children: [
+      { index: true, element: <Stats /> },
+      { path: "/admin/stats", element: <Stats /> },
+      { path: "/admin/users-cars", element: <UserCars /> },
+      { path: "/admin/admin-addlisting", element: <AdminAddListing /> },
+      { path: "/admin/all-bookings", element: <AllBookings /> },
+    ],
   },
 ]);
 

@@ -138,7 +138,6 @@ function MyBooking() {
               >
                 <Link
                   to={`/listing-details/${booking.carListing.id}`}
-                  // className="text-blue-600 hover:text-blue-800 text-lg flex items-center gap-1"
                 >
                   {/* Car Image */}
                   <div className="md:col-span-1">

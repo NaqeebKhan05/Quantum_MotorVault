@@ -1,8 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaInstagram, FaYoutube, FaFacebookF, FaTwitter } from "react-icons/fa";
+import { useUser } from "@clerk/clerk-react";
 
 const Footer = () => {
+    const { user } = useUser();
+    const adminEmail = import.meta.env.VITE_ADMIN_EMAIL_ID;
+
+  const isAdmin = user?.emailAddresses?.some(
+    (email) => email.emailAddress === adminEmail
+  );
+
   return (
     <footer className="bg-black text-gray-300 px-8 py-6 rounded-4xl">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
@@ -25,6 +33,9 @@ const Footer = () => {
           <Link to="/search" className="hover:text-white transition">Search</Link>
           <Link to="/about" className="hover:text-white transition">About</Link>
           <Link to="/contact" className="hover:text-white transition">Contact</Link>
+          {isAdmin && (
+            <Link to="/admin" className="hover:text-white transition">Admin</Link>
+          )}
         </ul>
 
         {/* ================= Social Icons ================= */}
